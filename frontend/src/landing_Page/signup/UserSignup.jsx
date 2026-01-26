@@ -22,7 +22,7 @@ const UserSignup = () => {
       );
 
       if (res.data.success) {
-        window.location.href = DASHBOARD_URL; // ✅ AUTO LOGIN
+        window.location.href = DASHBOARD_URL; // AUTO LOGIN
       }
     } catch (error) {
       console.error(error);
