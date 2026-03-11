@@ -33,8 +33,10 @@ const Menu = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8080";
+
   const handleLogout = async () => {
-    await fetch("http://localhost:8080/api/auth/logout", {
+    await fetch(`${BASE_URL}/api/auth/logout`, {
       credentials: "include",
     });
     window.location.href = "http://localhost:5173/userlogin";

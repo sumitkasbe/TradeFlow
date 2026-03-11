@@ -6,7 +6,7 @@ import {
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
-// 🔴 REQUIRED for Doughnut chart
+//  REQUIRED for Doughnut chart
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export function DoughnutChart({ data }) {
