@@ -1,4 +1,5 @@
 import { createRoot } from "react-dom/client";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import HomePage from "./landing_Page/home/HomePage.jsx";
@@ -12,7 +13,15 @@ import Footer from "./landing_Page/Footer.jsx";
 import NotFound from "./landing_Page/NotFound.jsx";
 import UserSignup from "./landing_Page/signup/UserSignup.jsx";
 import UserLogin from "./landing_Page/signup/UserLogin.jsx";
-import Dashboard from "../../dashboard/src/components/Dashboard.jsx";
+
+const DASHBOARD_URL = import.meta.env.VITE_DASHBOARD_URL || "https://tradeflowdashboard.onrender.com";
+
+function RedirectToDashboard() {
+  useEffect(() => {
+    window.location.href = DASHBOARD_URL;
+  }, []);
+  return <div>Redirecting to dashboard...</div>;
+}
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -26,9 +35,7 @@ createRoot(document.getElementById("root")).render(
       <Route path="/support" element={<SupportPage />} />
       <Route path="/usersignup" element={<UserSignup />} />
       <Route path="/userlogin" element={<UserLogin />} />
-
-      <Route path="/dashboard/*" element={<Dashboard />} />
-
+      <Route path="/dashboard/*" element={<RedirectToDashboard />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer />
