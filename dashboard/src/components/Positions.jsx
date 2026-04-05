@@ -18,7 +18,7 @@ const Positions = () => {
       .get("/allPositions")
       .then((res) => setAllPositions(res.data))
       .catch(() => {
-        window.location.href = "http://localhost:5173/userlogin";
+        window.location.href = (import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173") + "/userlogin";
       });
   }, []);
 

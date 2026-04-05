@@ -39,7 +39,7 @@ const Menu = () => {
     await fetch(`${BASE_URL}/api/auth/logout`, {
       credentials: "include",
     });
-    window.location.href = "http://localhost:5173/userlogin";
+    window.location.href = (import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173") + "/userlogin";
   };
 
   const menuClass = "menu";

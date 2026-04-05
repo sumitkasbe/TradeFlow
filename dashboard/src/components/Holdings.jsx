@@ -12,7 +12,7 @@ const Holdings = () => {
       .get("/allHoldings")
       .then((res) => setAllHoldings(res.data))
       .catch(() => {
-        window.location.href = "http://localhost:5173/userlogin";
+        window.location.href = (import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173") + "/userlogin";
       });
   }, []);
 
