@@ -16,7 +16,7 @@ const { PositionsModel } = require("./model/PositionsModel");
 // Middleware
 app.use(
   cors({
-    origin: ["https://tradeflowfrontend.onrender.com", "https://tradeflowdashboard.onrender.com", "http://localhost:5173", "http://localhost:5174"],
+    origin: ["https://tradeflowfrontend.onrender.com", "https://tradeflowbackend.onrender.com", "http://localhost:5173", "http://localhost:5174"],
     credentials: true,
   }),
 );
