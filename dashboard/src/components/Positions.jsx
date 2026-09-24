@@ -16,9 +16,17 @@ const Positions = () => {
   useEffect(() => {
     api
       .get("/allPositions")
-      .then((res) => setAllPositions(res.data))
-      .catch(() => {
-        window.location.href = (import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173") + "/userlogin";
+      .then((res) => {
+        setAllPositions(res.data);
+      })
+      .catch((error) => {
+        console.error("Positions API Error:", error);
+
+        if (error.response?.status === 401) {
+          window.location.href =
+            (import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173") +
+            "/userlogin";
+        }
       });
   }, []);
 
