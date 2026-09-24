@@ -11,8 +11,14 @@ const Holdings = () => {
     api
       .get("/allHoldings")
       .then((res) => setAllHoldings(res.data))
-      .catch(() => {
-        window.location.href = (import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173") + "/userlogin";
+      .catch((error) => {
+        console.error("Holdings API Error:", error);
+
+        if (error.response?.status === 401) {
+          window.location.href =
+            (import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173") +
+            "/userlogin";
+        }
       });
   }, []);
 
